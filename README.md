@@ -1,5 +1,6 @@
 # progressbar
-![Travis CI](https://api.travis-ci.com/GitAntoinee/progressbar.svg)
+[![Travis CI](https://api.travis-ci.com/GitAntoinee/progressbar.svg)](https://travis-ci.com/github/GitAntoinee/progressbar)
+[![Bintray](https://api.bintray.com/packages/pottime/maven/progressbar/images/download.svg)](https://bintray.com/pottime/maven/progressbar/_latestVersion)
 
 Terminal-based progressbar for Kotlin multiplatform
 
