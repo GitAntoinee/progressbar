@@ -40,12 +40,18 @@ class DefaultProgressRenderer(
         }
 
         val suffix = buildString {
-            // `ticks/maxTicks`
+            // `5/10 5/s` (ticks is 5, max ticks is 10 and ticks per second is 5)
             append(' ')
+
             append(ticks)
             append('/')
             append(maxTicks)
             append(progressable.unit.name)
+
+            append(' ')
+
+            append(progressable.ticksPerSecond)
+            append("/s")
         }
 
         val progressbar = buildString {
