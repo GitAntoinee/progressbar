@@ -4,7 +4,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlin.native.concurrent.ThreadLocal
 
 class ProgressBar(
     override val state: ProgressState,
@@ -15,10 +14,10 @@ class ProgressBar(
     override val renderer: ProgressRenderer = DefaultProgressRenderer(this, this)
     override val consumer: ProgressConsumer = TerminalProgressConsumer
 
-    internal var closed: Boolean = false
+    private var closed: Boolean = false
     private val rendererJob: Job = GlobalScope.launch {
         while (!closed) {
-            consumer.consume(renderer.render(Terminal.width - 1))
+            consumer.consume(renderer.render(terminalWidth - 1))
             delay(100)
         }
     }
@@ -55,6 +54,6 @@ class ProgressBar(
         rendererJob.cancel()
 
         // Final
-        consumer.consume(renderer.render(Terminal.width - 1))
+        consumer.consume(renderer.render(terminalWidth - 1))
     }
 }
