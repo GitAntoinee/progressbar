@@ -9,7 +9,8 @@ class ProgressBar(
     override val state: ProgressState,
     override val style: ProgressBarStyle,
     override val task: String? = null,
-    override val unit: ProgressUnit = ProgressUnit.DEFAULT
+    override val unit: ProgressUnit = ProgressUnit.DEFAULT,
+    val options: ProgressBarOptions = ProgressBarOptions(),
 ) : Progressable, Progressable.Convenience, Stylable, Consumable, Renderable, Closeable {
     constructor(
         ticks: Long,
@@ -26,7 +27,7 @@ class ProgressBar(
     private val rendererJob: Job = GlobalScope.launch {
         while (!closed) {
             consumer.consume(renderer.render(terminalWidth - 1))
-            delay(100)
+            delay(options.renderInterval)
         }
     }
 
