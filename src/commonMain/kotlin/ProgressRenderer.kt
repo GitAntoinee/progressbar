@@ -12,7 +12,7 @@ interface ProgressRenderer {
 
 class DefaultProgressRenderer(
     private val progressable: Progressable,
-    private val stylable: Stylable
+    private val stylable: Stylable,
 ) : ProgressRenderer {
     private val percentage get() = "${progressable.state.percentage.round(2)}%"
 
@@ -36,9 +36,9 @@ class DefaultProgressRenderer(
         val suffix = buildString {
             // `ticks/maxTicks`
             append(' ')
-            append(progressable.state.ticks)
+            append((progressable.state.ticks / progressable.unit.size).round(2))
             append('/')
-            append(progressable.state.maxTicks)
+            append((progressable.state.maxTicks / progressable.unit.size).round(2))
         }
 
         val progressbar = buildString {

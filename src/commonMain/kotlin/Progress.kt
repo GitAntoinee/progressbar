@@ -7,6 +7,11 @@ interface Progressable {
     val state: ProgressState
 
     /**
+     * The unit of the progress
+     */
+    val unit: ProgressUnit
+
+    /**
      * Convenience methods
      */
     interface Convenience {

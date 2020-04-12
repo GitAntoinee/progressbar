@@ -8,8 +8,14 @@ import kotlinx.coroutines.launch
 class ProgressBar(
     override val state: ProgressState,
     override val style: ProgressBarStyle,
+    override val unit: ProgressUnit = ProgressUnit.DEFAULT,
 ) : Progressable, Progressable.Convenience, Stylable, Consumable, Renderable, Closeable {
-    constructor(ticks: Long, maxTicks: Long, style: ProgressBarStyle) : this(ProgressState(ticks, maxTicks), style)
+    constructor(
+        ticks: Long,
+        maxTicks: Long = ticks + 100,
+        style: ProgressBarStyle = ProgressBarStyle.ASCII,
+        unit: ProgressUnit = ProgressUnit.DEFAULT
+    ) : this(ProgressState(ticks, maxTicks), style, unit)
 
     override val renderer: ProgressRenderer = DefaultProgressRenderer(this, this)
     override val consumer: ProgressConsumer = TerminalProgressConsumer
