@@ -17,6 +17,11 @@ interface Progressable {
     val unit: ProgressUnit
 
     /**
+     * The ticks per second
+     */
+    val ticksPerSecond: Long
+
+    /**
      * Convenience methods
      */
     interface Convenience {
