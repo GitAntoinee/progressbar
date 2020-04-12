@@ -51,6 +51,7 @@ class DefaultProgressRenderer(
             append(' ')
 
             append(progressable.ticksPerSecond)
+            append(progressable.unit.sourceUnit)
             append("/s")
         }
 
