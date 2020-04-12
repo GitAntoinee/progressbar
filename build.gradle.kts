@@ -94,7 +94,7 @@ tasks {
     val sampleJvmShadowJar by creating(ShadowJar::class) {
         group = "shadow"
 
-        archiveBaseName.set("${archiveBaseName.get()}-sample-jvm")
+        archiveBaseName.set("${archiveBaseName.get()}-samplejvm")
         archiveClassifier.set("all")
 
         val target = kotlin.targets.getByName("sampleJvm")
