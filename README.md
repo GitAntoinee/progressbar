@@ -40,3 +40,30 @@ ProgressBar(ticks = 0, maxTicks = 100, style = ProgressBarStyle.COLORFUL_UNICODE
     // ...
 }
 ```
+
+See preview above
+
+### Unit
+While processing or downloading data, it can be a good idea to provide the unit.
+
+```kotlin
+// Note : the ticks are in KB
+ProgressBar(ticks = 0, maxTicks = 100, unit = ProgressBarUnit.KB_TO_MB).use { progressBar ->
+    // The ticks will be automatically converted from KB to MB
+}
+```
+
+See preview above
+
+For a custom unit, you can create your own ProgressBarUnit: `ProgressBarUnit(unitName, unitSize)`
+
+### Task name
+You can add text at the beginning of the progress bar, with the `task` parameter.
+
+```kotlin
+ProgressBar(ticks = 0, maxTicks = 100, task = "Text").use { progressBar ->
+    // ...
+}
+```
+
+See preview above
