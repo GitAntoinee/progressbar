@@ -39,6 +39,7 @@ class DefaultProgressRenderer(
             append((progressable.state.ticks / progressable.unit.size).round(2))
             append('/')
             append((progressable.state.maxTicks / progressable.unit.size).round(2))
+            append(progressable.unit.name)
         }
 
         val progressbar = buildString {
