@@ -27,3 +27,16 @@ ProgressBar(ticks = 0, maxTicks = 100).use { progressBar -> // ProgressBar.close
     progressBar.tickTo(100) // Set ticks to 100
 }
 ```
+
+### Style
+The styles let you make the progressbar nicer
+
+* `COLORFUL_UNICODE` ansi colors and unicode characters
+* `UNICODE` unicode characters
+* `ASCII` ascii characters
+
+```kotlin
+ProgressBar(ticks = 0, maxTicks = 100, style = ProgressBarStyle.COLORFUL_UNICODE).use { progressBar ->
+    // ...
+}
+```
