@@ -2,6 +2,11 @@ package fr.pottime.progressbar
 
 interface Progressable {
     /**
+     * The name of the task of the progress
+     */
+    val task: String?
+
+    /**
      * The state of the progress
      */
     val state: ProgressState

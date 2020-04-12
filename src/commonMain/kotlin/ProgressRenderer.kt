@@ -28,7 +28,11 @@ class DefaultProgressRenderer(
         // TODO : Reduce buildString invokes
 
         val prefix = buildString {
-            // `99.99%` (with a progress of ~0.9)
+            // `Task 99.99%` (with a progress of ~0.9)
+            if (progressable.task != null) {
+                append(progressable.task)
+                append(' ')
+            }
             append(percentage)
             append(' ')
         }
