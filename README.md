@@ -1,4 +1,6 @@
 # progressbar
+![Travis CI](https://api.travis-ci.com/GitAntoinee/progressbar.svg)
+
 Terminal-based progressbar for Kotlin multiplatform
 
 ## Preview
