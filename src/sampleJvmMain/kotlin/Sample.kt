@@ -2,6 +2,7 @@ package fr.pottime.progressbar.sample
 
 import fr.pottime.progressbar.ProgressBar
 import fr.pottime.progressbar.ProgressBarStyle
+import fr.pottime.progressbar.ProgressBarOptions
 import fr.pottime.progressbar.ProgressState
 import fr.pottime.progressbar.ProgressUnit
 import kotlinx.cli.ArgParser
