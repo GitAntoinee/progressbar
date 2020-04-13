@@ -56,6 +56,10 @@ kotlin {
         // Samples
         val sampleJvmMain by getting {
             dependsOn(jvmMain)
+
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-cli:0.2.1")
+            }
         }
     }
 }
