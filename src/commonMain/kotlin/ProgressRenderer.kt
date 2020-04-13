@@ -46,32 +46,42 @@ class DefaultProgressRenderer(
                 append(progressable.task)
                 append(' ')
             }
-            append(percentage)
-            append(' ')
+
+            if(progressable.options.showPercentage) {
+                append(percentage)
+                append(' ')
+            }
         }
 
         val suffix = buildString {
             // `5/10 5/s (00:00:00)` (ticks is 5, max ticks is 10 and ticks per second is 5)
-            append(' ')
 
-            append(ticks)
-            append('/')
-            append(maxTicks)
-            append(progressable.unit.name)
+            if (progressable.options.showTicks) {
+                append(' ')
 
-            append(' ')
+                append(ticks)
+                append('/')
+                append(maxTicks)
+                append(progressable.unit.name)
+            }
 
-            append(ticksPerSecond)
-            append(progressable.unit.name)
-            append("/s")
+            if (progressable.options.showSpeed) {
+                append(' ')
 
-            append(' ')
+                append(ticksPerSecond)
+                append(progressable.unit.name)
+                append("/s")
+            }
 
-            append('(')
-            append(elapsed)
-            append(" / ")
-            append(remaining)
-            append(')')
+            if (progressable.options.showTime) {
+                append(' ')
+
+                append('(')
+                append(elapsed)
+                append(" / ")
+                append(remaining)
+                append(')')
+            }
         }
 
         val progressbar = buildString {

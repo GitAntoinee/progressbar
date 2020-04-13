@@ -24,6 +24,11 @@ interface Progressable {
      */
     val ticksPerSecond: Long
 
+    /**
+     * The options of the progress bar
+     */
+    val options: ProgressBarOptions
+
     val startDate: DateTime
     val elapsedDate: TimeSpan get() = DateTime.now() - startDate
 

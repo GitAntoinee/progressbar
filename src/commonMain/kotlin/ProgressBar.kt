@@ -11,7 +11,7 @@ class ProgressBar(
     override val style: ProgressBarStyle,
     override val task: String? = null,
     override val unit: ProgressUnit = ProgressUnit.DEFAULT,
-    val options: ProgressBarOptions = ProgressBarOptions(),
+    override val options: ProgressBarOptions = ProgressBarOptions(),
 ) : Progressable, Progressable.Convenience, Stylable, Consumable, Renderable, Closeable {
     constructor(
         ticks: Long,
