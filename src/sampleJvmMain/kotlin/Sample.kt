@@ -24,8 +24,6 @@ fun main(args: Array<String>) {
 
     parser.parse(args)
 
-    println(showPercentage)
-
     ProgressBar(
         ProgressState(ticks.toLong(), maxTicks.toLong()),
         ProgressBarStyle.valueOf(style ?: "ASCII"),
