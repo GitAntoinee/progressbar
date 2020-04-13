@@ -62,6 +62,7 @@ kotlin {
 bintray {
     user = System.getenv("BINTRAY_USER")
     key = System.getenv("BINTRAY_KEY")
+    publish = true
 
     pkg.apply {
         userOrg = "pottime"
