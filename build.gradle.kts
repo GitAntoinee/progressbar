@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "fr.pottime.progressbar"
-version = "1.1"
+version = "1.2"
 
 repositories {
     maven("https://dl.bintray.com/pottime/maven")
