@@ -9,7 +9,7 @@ fun main() {
     ProgressBar(0, 25000, ProgressBarStyle.COLORFUL_UNICODE, "Sample", ProgressUnit.KB_TO_MB).use { progressBar ->
         (progressBar.ticks..progressBar.maxTicks).forEach { ticks ->
             progressBar.tickTo(ticks)
-            Thread.sleep(Random.nextLong(1, 10))
+            if(Random.nextBoolean()) Thread.sleep(Random.nextLong(1, 10))
         }
     }
     println()
