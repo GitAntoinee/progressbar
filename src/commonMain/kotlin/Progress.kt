@@ -1,5 +1,8 @@
 package fr.pottime.progressbar
 
+import com.soywiz.klock.DateTime
+import com.soywiz.klock.TimeSpan
+
 interface Progressable {
     /**
      * The name of the task of the progress
@@ -21,6 +24,9 @@ interface Progressable {
      */
     val ticksPerSecond: Long
 
+    val startDate: DateTime
+    val elapsedDate: TimeSpan get() = DateTime.now() - startDate
+
     /**
      * Convenience methods
      */
@@ -40,6 +46,14 @@ interface Progressable {
          * @see [ProgressState.maxTicks]
          */
         var maxTicks: Long
+
+        /**
+         * The remaining ticks
+         *
+         * @see [maxTicks]
+         * @see [ticks]
+         */
+        val remainingTicks: Long get() = maxTicks - ticks
 
         /**
          * Increment [ticks] by 1 and set [Convenience.maxTicks] to [maxTicks] if it is not null

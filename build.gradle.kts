@@ -34,6 +34,7 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
 
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.5-1.4-M1")
+                implementation("com.soywiz.korlibs.klock:klock:1.10.4")
             }
         }
         val commonTest by getting {

@@ -1,5 +1,6 @@
 package fr.pottime.progressbar
 
+import com.soywiz.klock.ISO8601
 import kotlin.math.floor
 
 interface Renderable {
@@ -18,6 +19,7 @@ class DefaultProgressRenderer(
     private val ticks get() = (progressable.state.ticks / progressable.unit.size).round(2).padStart(maxTicks.length + 3)
     private val maxTicks get() = (progressable.state.maxTicks / progressable.unit.size).round(2)
     private val ticksPerSecond get() = (progressable.ticksPerSecond / progressable.unit.size).round(2, false)
+    private val elapsed get() = ISO8601.TIME_LOCAL_COMPLETE.format(progressable.elapsedDate)
 
     private fun barBlock(barLength: Int): Int = (progressable.state.progress * barLength).toInt()
     private fun barFree(barLength: Int): Int = barLength - barBlock(barLength)
@@ -41,7 +43,7 @@ class DefaultProgressRenderer(
         }
 
         val suffix = buildString {
-            // `5/10 5/s` (ticks is 5, max ticks is 10 and ticks per second is 5)
+            // `5/10 5/s (00:00:00)` (ticks is 5, max ticks is 10 and ticks per second is 5)
             append(' ')
 
             append(ticks)
@@ -54,6 +56,12 @@ class DefaultProgressRenderer(
             append(ticksPerSecond)
             append(progressable.unit.name)
             append("/s")
+
+            append(' ')
+
+            append('(')
+            append(elapsed)
+            append(')')
         }
 
         val progressbar = buildString {

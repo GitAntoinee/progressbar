@@ -1,5 +1,6 @@
 package fr.pottime.progressbar
 
+import com.soywiz.klock.DateTime
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -17,8 +18,10 @@ class ProgressBar(
         maxTicks: Long = ticks + 100,
         style: ProgressBarStyle = ProgressBarStyle.ASCII,
         task: String? = null,
-        unit: ProgressUnit = ProgressUnit.DEFAULT
+        unit: ProgressUnit = ProgressUnit.DEFAULT,
     ) : this(ProgressState(ticks, maxTicks), style, task, unit)
+
+    override val startDate: DateTime = DateTime.now()
 
     override val renderer: ProgressRenderer = DefaultProgressRenderer(this, this)
     override val consumer: ProgressConsumer = TerminalProgressConsumer
